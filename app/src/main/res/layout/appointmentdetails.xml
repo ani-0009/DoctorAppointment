@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/fragmentbg">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Patient Appointment Portal"
+        android:textStyle="bold"
+
+        android:textSize="25dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="serif-monospace"
+
+        >
+
+
+
+    </TextView>
+
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Appointment ID"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtappid" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Doctor ID"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtdid" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/doag"
+            android:layout_width="46dp"
+            android:layout_height="52dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_date_range_black_24dp" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Give Date of Appointment"
+            android:textColorHint="@color/textcolor"
+            app:hintAnimationEnabled="true"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textcolor"
+                android:textSize="15dp"
+                android:id="@+id/txtdoag"
+                android:textColorHint="@color/textcolor"
+                />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="**Click to give DOA to a patient"
+            android:textColor="@color/textcolor"
+            android:textStyle="italic"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp">
+
+        <ImageButton
+            android:id="@+id/doa"
+            android:layout_width="46dp"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_date_range_black_24dp" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Provide Date of Appointment"
+            app:hintAnimationEnabled="true"
+            android:textColorHint="@color/textcolor"
+            >
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:id="@+id/txtdoa"
+            android:textColorHint="@color/textcolor"
+            />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="**Date of Appointment"
+            android:textStyle="italic"
+            android:textColor="@color/textcolor"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+
+    </LinearLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Appointment Number"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_person_add_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtappno" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Patient Phone Number"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_contact_phone_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtphone" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Patient Name"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_text_format_black_24dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/textcolor"
+            android:textColorHint="@color/textcolor"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Patient's Problem"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_mood_bad_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtproblem" />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="SUBMIT"
+
+        android:textStyle="bold"
+        android:textColor="@color/textcolor"
+        android:background="@color/mainbg"
+        android:textSize="20dp"
+        android:id="@+id/btn_register"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+
+        android:drawableRight="@drawable/ic_forward_black_24dp"/>
+
+
+</LinearLayout>

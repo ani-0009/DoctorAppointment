@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">DoctorAppointment</string>
+    <string name="title_activity_clerk_home">ClerkHome</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+
+
+    <string-array name="Timings" >
+        <item> Mention Timings!!</item>
+        <item>8AM to 11AM</item>
+        <item>11AM to 2:30PM</item>
+        <item>3PM to 4pm</item>
+        <item>4PM to 6:30PM</item>
+        <item>7PM to 8PM</item>
+
+    </string-array>
+
+    <string-array name="Profession" >
+        <item> Select Your Profession!!</item>
+        <item>Heart Surgeon</item>
+        <item>Cardiologist</item>
+        <item> Dentist</item>
+        <item> Allergist</item>
+        <item> Dermatologist</item>
+        <item> Epidemiologist</item>
+        <item> Infectious Disease Specialist</item>
+        <item>  Immunologist</item>
+        <item>Neurologist </item>
+        <item> Neurosurgeon</item>
+        <item> ENT Specialist</item>
+
+
+        <item>Physiologist</item>
+        <item> Plastic Surgeon</item>
+
+
+    </string-array>
+</resources>

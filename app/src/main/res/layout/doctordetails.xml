@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/drawerbg"
+    >
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Doctor Portal"
+android:textStyle="bold"
+
+        android:textSize="25dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="serif-monospace"
+
+        >
+
+    </TextView>
+
+
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Doctor ID"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtid" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Name"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_text_format_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtname" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Email"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtemail" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColorHint="@color/textcolor"
+
+
+        />
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:hint="Enter the Address"
+            app:hintAnimationEnabled="true"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_add_location_black_24dp"
+            android:drawablePadding="10dp"
+
+            android:id="@+id/txtphone"
+            android:inputType="text"/>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the Phone Number"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtadd"
+            android:inputType="phone"/>
+
+
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:drawableLeft="@drawable/ic_today_black_24dp"
+        android:drawablePadding="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Select Days :"
+        android:textSize="15dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp">
+
+    <CheckBox
+        android:id="@+id/chksun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/textcolor"
+android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:text="Sun"
+        />
+    <CheckBox
+        android:id="@+id/chkmon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor"
+        android:buttonTint="@color/textcolor"
+        android:padding="10dp"
+        android:text="Mon"
+        android:layout_marginLeft="10dp"
+        />
+    <CheckBox
+        android:id="@+id/chktue"
+        android:buttonTint="@color/textcolor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/textcolor"
+        android:layout_marginLeft="10dp"
+        android:text="Tue"
+        />
+    <CheckBox
+        android:id="@+id/chkwed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolor"
+        android:padding="10dp"
+        android:text="Wed"
+        android:layout_marginLeft="10dp"
+        android:buttonTint="@color/textcolor"
+        />
+
+
+
+
+</LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        >
+
+
+        <CheckBox
+            android:id="@+id/chkthu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:buttonTint="@color/textcolor"
+            android:padding="10dp"
+            android:text="Thu"
+            />
+        <CheckBox
+            android:id="@+id/chkfri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/textcolor"
+            android:buttonTint="@color/textcolor"
+            android:text="Fri"
+            />
+        <CheckBox
+            android:id="@+id/chksat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/textcolor"
+            android:textColor="@color/textcolor"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Sat"
+            />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_access_time_black_24dp"
+        android:drawablePadding="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Select Timings :"
+        android:textSize="15dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+
+        />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/spintimings"
+        android:layout_marginTop="5dp"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:backgroundTint="@color/textcolor"
+        android:foregroundTint="@color/textcolor"
+
+
+
+
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_card_membership_black_24dp"
+        android:drawablePadding="10dp"
+        android:layout_marginLeft="5dp"
+        android:text="Select Profession :"
+        android:textSize="15dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+
+        />
+
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/spinprofession"
+        android:layout_marginTop="5dp"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:backgroundTint="@color/textcolor"
+        android:foregroundTint="@color/textcolor"
+
+
+
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="SUBMIT"
+
+        android:textStyle="bold"
+        android:textColor="@color/textcolor"
+        android:background="@color/mainbg"
+        android:textSize="20dp"
+        android:id="@+id/btn_register"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+
+        android:drawableRight="@drawable/ic_forward_black_24dp"/>
+
+
+
+
+
+
+
+
+</LinearLayout>

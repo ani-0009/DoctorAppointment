@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pop"
+    android:orientation="vertical"
+    android:background="@mipmap/bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clerk Registration Portal"
+        android:textColor="@color/textcolor"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a Unique ID"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:inputType="text"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:layout_weight="1"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:inputType="text"
+            android:scrollHorizontally="true"
+            android:ellipsize="end"
+            android:layout_weight="1"
+            android:id="@+id/txtid"
+
+
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Name"
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_text_format_black_24dp"
+            android:drawablePadding="10dp"
+
+            android:id="@+id/txtname"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Email "
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtemail"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter any Password "
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+        app:passwordToggleEnabled="true"
+
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:id="@+id/txtpass"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Phone Number "
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:fontFamily="sans-serif"
+            android:inputType="phone"
+            android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/txtphone"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="         Enter Your Address "
+        app:hintAnimationEnabled="true"
+        android:textColorHint="@color/textcolor"
+
+
+
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textColor="@color/textcolor"
+            android:textSize="15dp"
+            android:textColorHint="@color/textcolor"
+            android:textStyle="normal"
+            android:gravity="top"
+
+            android:layout_gravity="top"
+            android:fontFamily="sans-serif"
+            android:id="@+id/txtadd"
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Register"
+        android:textStyle="bold"
+        android:textColor="@color/textcolor"
+        android:background="@color/mainbg"
+        android:textSize="20dp"
+        android:id="@+id/btn_register"
+        android:layout_marginLeft="5dp"
+        android:drawableRight="@drawable/ic_forward_black_24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="** All Fields Are Necessary"
+        android:textColor="@color/textcolor"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="10dp"
+        android:textStyle="italic"
+        android:gravity="left"
+
+
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+
+</LinearLayout>
