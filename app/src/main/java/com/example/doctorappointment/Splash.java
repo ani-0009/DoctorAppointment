@@ -22,7 +22,7 @@ TextToSpeech textToSpeech;
             @Override
             public void run()
             {
-                Intent intent=new Intent(Splash.this,SlideOne.class);
+                Intent intent=new Intent(Splash.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -35,7 +35,7 @@ TextToSpeech textToSpeech;
     public void onInit(int i)
     {
 
-        String msg = "Welcome to Doctor Appointmment";
+        String msg = "Welcome to Doctor Appointment";
         textToSpeech.speak(msg,TextToSpeech.QUEUE_FLUSH,null);
         textToSpeech.setLanguage(Locale.ENGLISH);
 

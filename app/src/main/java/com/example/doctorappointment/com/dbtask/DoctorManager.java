@@ -22,7 +22,9 @@ public class DoctorManager
     public SQLiteDatabase openDB()
     {
         SQLiteDatabase sqLiteDatabase=helper.getWritableDatabase();
+
         return sqLiteDatabase;
+
     }
 
     public void closeDB()

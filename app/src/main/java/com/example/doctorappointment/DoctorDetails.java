@@ -86,37 +86,11 @@ Button btn_register;
 
         choice = DoctorDetails.this.getResources().getStringArray(R.array.Profession);
 
-        if(chkmon.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Monday ";
-        }
-        if(chktue.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Tuesday ";
-        }
-         if(chkwed.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Wednesday ";
-        }
-         if(chkthu.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Thursday ";
-        }
-         if(chkfri.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Friday ";
-        }
-         if(chksat.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Saturday ";
-        }
-         if(chksun.isChecked())
-        {
-            checkBoxdata=checkBoxdata+"Sunday ";
-        }
+
 
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                  timings=adapterView.getItemAtPosition(i).toString();
@@ -149,8 +123,36 @@ spinn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 String email=txtemail.getText().toString();
                 String phone= txtphone.getText().toString();
                 String address=txtadd.getText().toString();
+                if(chkmon.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Monday ";
+                }
+                if(chktue.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Tuesday ";
+                }
+                if(chkwed.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Wednesday ";
+                }
+                if(chkthu.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Thursday ";
+                }
+                if(chkfri.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Friday ";
+                }
+                if(chksat.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Saturday ";
+                }
+                if(chksun.isChecked())
+                {
+                    checkBoxdata=checkBoxdata+"Sunday ";
+                }
 
-
+               // Toast.makeText(getActivity(), "data is "+checkBoxdata, Toast.LENGTH_SHORT).show();
                 ContentValues contentValues=new ContentValues();
                 contentValues.put(DoctorConstant.coldid,id);
                 contentValues.put(DoctorConstant.coldname,name);
