@@ -1,13 +1,22 @@
 package com.example.doctorappointment;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,15 +88,13 @@ btn_submit=view.findViewById(R.id.btn_submit);
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         String dateStr = dayOfMonth+"/"+monthOfYear+"/"+year;
-                        SimpleDateFormat dateformat = new SimpleDateFormat("dd/MM/yyyy");
-                        Date d= null;
-                        try {
-                            d = dateformat.parse(dateStr);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                         day = (String) android.text.format.DateFormat.format("EEEE", d);
-                        txtdoag.setText(dateStr);
+
+
+                       SimpleDateFormat dateformat = new SimpleDateFormat("EEEE");
+
+                        Date d= new Date(year,monthOfYear,dayOfMonth-1);
+                         day = dateformat.format(d);
+                        txtdoag.setText(dateStr +"\t"+day);
                     }
                 }, yy, mm, dd);
                 datePicker.show();
@@ -121,54 +128,132 @@ btn_submit=view.findViewById(R.id.btn_submit);
         String appdoctorid = txtdid.getText().toString();
         String appID = txtappid.getText().toString();
         String appNO = txtappno.getText().toString();
-        String appPhone = txtphone.getText().toString();
-        String appName = txtname.getText().toString();
+        final String appPhone = txtphone.getText().toString();
+        final String appName = txtname.getText().toString();
         String appProblem = txtproblem.getText().toString();
         String appdoag = txtdoag.getText().toString();
         String appdoa = txtdoa.getText().toString();
 
 
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DoctorConstant.colpappid, appID);
-        contentValues.put(DoctorConstant.colpdid, appdoctorid);
-        contentValues.put(DoctorConstant.colpdoag, appdoag);
-        contentValues.put(DoctorConstant.colpdoa, appdoa);
-        contentValues.put(DoctorConstant.colpappno, appNO);
-        contentValues.put(DoctorConstant.colpphone, appPhone);
-        contentValues.put(DoctorConstant.colpname, appName);
-        contentValues.put(DoctorConstant.colpproblem, appProblem);
-        long row = sqLiteDatabase.insert(DoctorConstant.tabletwo, null, contentValues);
-        if (row > 0) {
-            Toast.makeText(getActivity(), "Data Added ", Toast.LENGTH_SHORT).show();
 
 
-        }
 
-
-        Cursor cursor = sqLiteDatabase.rawQuery("select DoctorDays from DoctorDetails where DoctorID=" + appdoctorid, null);
+        Cursor cursor = sqLiteDatabase.rawQuery("select DoctorProfession,DoctorTimings,DoctorName,DoctorDays from DoctorDetails where DoctorID=" + appdoctorid, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
 
 
-                    String weekday = cursor.getString(cursor.getColumnIndex("DoctorDays"));
+                    final String weekday = cursor.getString(cursor.getColumnIndex("DoctorDays"));
+                    final String doctorname = cursor.getString(cursor.getColumnIndex("DoctorName"));
+                    final String doctortime = cursor.getString(cursor.getColumnIndex("DoctorTimings"));
+                    //final String prof = cursor.getString(cursor.getColumnIndex("DoctorProfession"));
 
+
+                   // Toast.makeText(getActivity(), weekday +" / " +day, Toast.LENGTH_LONG).show();
 
                     if (weekday.contains(day)) {
-                        Toast.makeText(getActivity(), "Doctor Available", Toast.LENGTH_SHORT).show();
-                    } else {
 
-                        Toast.makeText(getActivity(), "Unavailable", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getActivity(), "Doctor Available", Toast.LENGTH_SHORT).show();
+
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put(DoctorConstant.colpappid, appID);
+                        contentValues.put(DoctorConstant.colpdid, appdoctorid);
+                        contentValues.put(DoctorConstant.colpdoag, appdoag);
+                        contentValues.put(DoctorConstant.colpdoa, appdoa);
+                        contentValues.put(DoctorConstant.colpappno, appNO);
+                        contentValues.put(DoctorConstant.colpphone, appPhone);
+                        contentValues.put(DoctorConstant.colpname, appName);
+                        contentValues.put(DoctorConstant.colpproblem, appProblem);
+                        long row = sqLiteDatabase.insert(DoctorConstant.tabletwo, null, contentValues);
+                        if (row > 0) {
+                            Toast.makeText(getActivity(), "Data Added ", Toast.LENGTH_SHORT).show();
+
+
+                        }
+
+
+                             final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                             builder.setTitle("Doctor Available>>");
+                             builder.setMessage("Would you like to Send Appointment Confirmation Message to "+appName);
+                             builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+                                 @Override
+                                 public void onClick(DialogInterface dialogInterface, int i) {
+                                     int permissionCheck= ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.SEND_SMS);
+                                     if(permissionCheck== PackageManager.PERMISSION_GRANTED) {
+                                         if (!appPhone.equals("")) {
+                                             SmsManager smsManager = SmsManager.getDefault();
+                                             smsManager.sendTextMessage(appPhone, null, "Dear " + appName + " Your Appointment is Done for "+day+". Your Doctor Name is "+doctorname+". Your Timings will be "+doctortime+". Thanks for using our services.", null, null);
+                                             Toast.makeText(getActivity(), " Message Sent ", Toast.LENGTH_SHORT).show();
+                                         }
+                                     }
+
+                                 }
+                             });
+                             builder.setNegativeButton("no",null);
+                             builder.setNeutralButton("cancel",null);
+
+                            AlertDialog dialog=builder.create();
+                             dialog.show();
+
+                         }
+
+
+
+
+                    else {
+                        final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                        builder.setTitle("Doctor Unavailable>>");
+                        builder.setMessage("Would to like to inform the patient "+appName+" about Appointment Failure");
+                        builder.setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                int permissionCheck= ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE);
+                                if(permissionCheck== PackageManager.PERMISSION_GRANTED) {
+                                    if (!appPhone.equals("")) {
+                                        Intent intent=new Intent(Intent.ACTION_CALL);
+                                        Uri number=Uri.parse("tel:"+appPhone);
+                                        intent.setData(number);
+                                        startActivity(intent);
+                                    }
+                                }
+
+                            }
+                        });
+                        builder.setNegativeButton("no",null);
+                        builder.setNeutralButton("cancel",null);
+
+                        AlertDialog dialog=builder.create();
+                        dialog.show();
+
+
+                      /*  AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+                        builder.setTitle("Doctor Not Available>>");
+                        builder.setMessage("Would to like to inform the patient "+appName+" about Appointment Failure");
+                        builder.setPositiveButton("Call", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                       // Toast.makeText(getActivity(), "hey "+weekday, Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(Intent.ACTION_CALL);
+                                Uri number=Uri.parse("tel:"+appPhone);
+                                intent.setData(number);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setNegativeButton("no",null);
+                        builder.setNeutralButton("cancel",null);*/
+
+
                     }
 
 
-                } while (cursor.moveToNext());
+                } while(cursor.moveToNext());
 
             }
         }
 
 
-        Cursor cursor1 = sqLiteDatabase.rawQuery("select DateOfAppointment from PatientDetails ", null);
+
     }
 
 
