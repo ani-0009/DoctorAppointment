@@ -25,6 +25,14 @@
 
     </group>
 
+    <group>
+
+        <item android:id="@+id/about"
+            android:title="About">
+
+        </item>
+    </group>
+
 
 
 </menu>

@@ -2,6 +2,7 @@ package com.example.doctorappointment;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,11 +19,21 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import in.shadowfax.proswipebutton.ProSwipeButton;
+
 public class MainActivity extends AppCompatActivity
 {
-    Button btnreg,btnlogin,btnmore;
+    Button btnreg,btnmore;
+
+    ProSwipeButton btnlogin;
+
+
     EditText txtloginemail,txtloginpass;
     //Intent intent;
+
+    String loginemail;
+    String loginpass;
+
 
 private FirebaseAuth firebaseAuth;
     @Override
@@ -35,6 +46,7 @@ private FirebaseAuth firebaseAuth;
          final String registeredPass= intent.getStringExtra("pass");*/
 
 txtloginemail=findViewById(R.id.txtloginemail);
+
 txtloginpass=findViewById(R.id.txtloginpass);
         btnlogin=findViewById(R.id.btnlogin);
         btnmore=findViewById(R.id.btnmore);
@@ -70,7 +82,7 @@ firebaseAuth=FirebaseAuth.getInstance();
             }
         });
 
-        btnlogin.setOnClickListener(new View.OnClickListener() {
+       /* btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -126,7 +138,65 @@ firebaseAuth=FirebaseAuth.getInstance();
 
             }
         });
+*/
 
+       btnlogin.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
+           @Override
+           public void onSwipeConfirm() {
+
+               loginemail=txtloginemail.getText().toString().trim();
+               loginpass=txtloginpass.getText().toString().trim();
+
+              new Handler().postDelayed(new Runnable() {
+                  @Override
+                  public void run() {
+
+                      if(loginemail.equals("")){
+
+
+                          txtloginemail.setError("Email should not be empty");
+                      }
+                      else if(loginpass.equals(""))
+                      {
+                          txtloginpass.setError("Name Should not be Empty");
+                      }
+
+                      else if(loginpass.length()<6)
+                      {
+                          Toast.makeText(MainActivity.this, "Password Length Too Small", Toast.LENGTH_SHORT).show();
+                      }
+                      else
+                      {
+
+
+
+
+
+                          firebaseAuth.signInWithEmailAndPassword(loginemail , loginpass)
+                                  .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                      @Override
+                                      public void onComplete(@NonNull Task<AuthResult> task) {
+                                          if (task.isSuccessful()) {
+
+                                              startActivity(new Intent(getApplicationContext(),ClerkHome.class));
+                                              btnlogin.showResultIcon(true);
+
+                                          } else {
+                                              Toast.makeText(MainActivity.this, "Login Failed or User Not Available", Toast.LENGTH_SHORT).show();
+
+                                              btnlogin.showResultIcon(false);
+                                              txtloginemail.setText("");
+                                              txtloginpass.setText("");
+                                          }
+
+
+                                      }
+                                  });
+                      }
+                  }
+              }, 2000);
+           }
+       });
 
 
 

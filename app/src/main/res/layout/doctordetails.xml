@@ -17,7 +17,7 @@
         android:text="Doctor Portal"
 android:textStyle="bold"
 
-        android:textSize="25dp"
+        android:textSize="35dp"
 
         android:textColor="@color/textcolor"
         android:layout_marginTop="5dp"
@@ -273,7 +273,25 @@ android:padding="10dp"
             android:text="Sat"
             />
 
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:textStyle="italic"
+
+        android:layout_marginLeft="5dp"
+        android:text="Select at least one day"
+        android:textSize="1dp"
+        android:gravity="end"
+        android:layout_marginRight="25dp"
+
+        android:textColor="@color/textcolor"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+
+        />
 
 
     <TextView

@@ -15,7 +15,7 @@
         android:layout_height="106dp"
         android:contentDescription="@string/nav_header_desc"
 
-
+android:layout_marginTop="25dp"
 
         app:srcCompat="@mipmap/dricon" />
 
@@ -29,7 +29,7 @@
         android:textColor="@color/textcolor"
         android:textStyle="bold"
 
-        android:text="Doctor Appointment"
+        android:text="      Doctor Appointment"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView

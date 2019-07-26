@@ -147,7 +147,7 @@ Make sure there is no sickness in the mind or heart."></TextView>
         </android.support.design.widget.TextInputLayout>
 
 
-        <Button
+        <!--<Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -161,7 +161,23 @@ Make sure there is no sickness in the mind or heart."></TextView>
             android:id="@+id/btnlogin"
             android:textColor="@color/textcolor"
             android:textSize="25dp"
-            android:textStyle="bold" />
+            android:textStyle="bold" />-->
+
+        <in.shadowfax.proswipebutton.ProSwipeButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+            app:btn_text="LOGIN"
+
+            app:text_color="@color/mainbg"
+            app:text_size="25dp"
+            android:id="@+id/btnlogin"
+            app:arrow_color="@color/mainbg"
+            android:background="@color/mainbg"
+           android:foregroundTint="@color/mainbg"
+            >
+
+        </in.shadowfax.proswipebutton.ProSwipeButton>
 
 
         <LinearLayout

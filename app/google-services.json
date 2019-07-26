@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "412126274707-v04v9bg2po81t25sr5e2bqppukmg1min.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doctorappointment",
+            "certificate_hash": "3d460af0de01c4ffce0d4845b97d406ec899b8bb"
+          }
+        },
+        {
+          "client_id": "412126274707-4tei7nptdp6vja25jrbku0c8ci0rbnf9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doctorappointment",
+            "certificate_hash": "fb27e250f45dd53f690aaabba27308ef0ee1ac10"
+          }
+        },
+        {
           "client_id": "412126274707-bn9qrk4ml3o7jbgd27n8hjt4sk8h39r4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

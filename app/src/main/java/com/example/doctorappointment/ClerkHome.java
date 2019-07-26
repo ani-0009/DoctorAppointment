@@ -1,5 +1,6 @@
 package com.example.doctorappointment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,14 +16,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class ClerkHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clerk_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        firebaseAuth=FirebaseAuth.getInstance();
         setSupportActionBar(toolbar);
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +46,9 @@ public class ClerkHome extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        Fragment fragment=new DoctorDetails();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragment).commit();
+
 
     }
 
@@ -90,9 +100,21 @@ public class ClerkHome extends AppCompatActivity
 
             fragment=new AppointmentDetails();
 
-        }  else if (id == R.id.applist) {
+        }
+
+        else if (id == R.id.applist) {
+
+            fragment =new AppointmentList();
+
 
         }
+        else if (id == R.id.about) {
+
+            fragment =new About();
+
+
+        }
+
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frame,fragment).commit();
@@ -100,5 +122,17 @@ public class ClerkHome extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+
+
+
+
     }
+
+
+
+
+
+
+
+
 }

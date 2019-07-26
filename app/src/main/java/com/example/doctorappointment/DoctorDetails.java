@@ -2,6 +2,7 @@ package com.example.doctorappointment;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doctorappointment.com.dbtask.DoctorConstant;
@@ -39,6 +41,7 @@ Button btn_register;
     DoctorManager manager;
     SQLiteDatabase sqLiteDatabase;
     String checkBoxdata="";
+
     String timings;
     String profession;
 
@@ -68,6 +71,8 @@ Button btn_register;
         spintimings=view.findViewById(R.id.spintimings);
         spinprofession=view.findViewById(R.id.spinprofession);
         btn_register=view.findViewById(R.id.btn_register);
+
+
 
 
 
@@ -123,52 +128,72 @@ spinn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 String email=txtemail.getText().toString();
                 String phone= txtphone.getText().toString();
                 String address=txtadd.getText().toString();
-                if(chkmon.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Monday ";
-                }
-                if(chktue.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Tuesday ";
-                }
-                if(chkwed.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Wednesday ";
-                }
-                if(chkthu.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Thursday ";
-                }
-                if(chkfri.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Friday ";
-                }
-                if(chksat.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Saturday ";
-                }
-                if(chksun.isChecked())
-                {
-                    checkBoxdata=checkBoxdata+"Sunday ";
-                }
 
-               // Toast.makeText(getActivity(), "data is "+checkBoxdata, Toast.LENGTH_SHORT).show();
-                ContentValues contentValues=new ContentValues();
-                contentValues.put(DoctorConstant.coldid,id);
-                contentValues.put(DoctorConstant.coldname,name);
-                contentValues.put(DoctorConstant.coldemail,email);
-                contentValues.put(DoctorConstant.coldphone,phone);
-                contentValues.put(DoctorConstant.coldaddress,address);
-                contentValues.put(DoctorConstant.colddays,checkBoxdata);
-                contentValues.put(DoctorConstant.coldtimings,timings);
-                contentValues.put(DoctorConstant.coldprofession,profession);
-
-                long row= sqLiteDatabase.insert(DoctorConstant.tableone,null,contentValues);
-                if(row>0)
-                {
-                    Toast.makeText(getActivity(), "Data Added ", Toast.LENGTH_SHORT).show();
+                if(id.equals("")){
 
 
+                    txtid.setError("Email should not be empty");
+                }
+                else if(name.equals(""))
+                {
+                    txtname.setError("NName should not be empty");
+                }
+                else if(email.equals(""))
+                {
+                    txtemail.setError("Email should not be empty");
+                }
+                else if(phone.equals(""))
+                {
+                    txtphone.setError("Phone should not be empty");
+                }
+                else if(address.equals(""))
+                {
+                    txtadd.setError("Address should not be empty");
+                }
+
+
+                else {
+
+                    if (chkmon.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Monday ";
+                    }
+                    if (chktue.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Tuesday ";
+                    }
+                    if (chkwed.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Wednesday ";
+                    }
+                    if (chkthu.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Thursday ";
+                    }
+                    if (chkfri.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Friday ";
+                    }
+                    if (chksat.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Saturday ";
+                    }
+                    if (chksun.isChecked()) {
+                        checkBoxdata = checkBoxdata + "Sunday ";
+                    }
+
+
+                    // Toast.makeText(getActivity(), "data is "+checkBoxdata, Toast.LENGTH_SHORT).show();
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(DoctorConstant.coldid, id);
+                    contentValues.put(DoctorConstant.coldname, name);
+                    contentValues.put(DoctorConstant.coldemail, email);
+                    contentValues.put(DoctorConstant.coldphone, phone);
+                    contentValues.put(DoctorConstant.coldaddress, address);
+                    contentValues.put(DoctorConstant.colddays, checkBoxdata);
+                    contentValues.put(DoctorConstant.coldtimings, timings);
+                    contentValues.put(DoctorConstant.coldprofession, profession);
+
+                    long row = sqLiteDatabase.insert(DoctorConstant.tableone, null, contentValues);
+                    if (row > 0) {
+                        Toast.makeText(getActivity(), "Data Added ", Toast.LENGTH_SHORT).show();
+
+
+                    }
                 }
 
             }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/fragmentbg">
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/dricon"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textStyle="normal"
+        android:fontFamily="serif-monospace"
+        android:text=" In today‟s world if someone wants to book a Doctor‟s Appointment we need to call in clinic or
+personally go to that place and book the appointment.\n This consumes precious time of the patient. Also if the doctor
+cancels his/her schedule, the patient does not come to know about it unless he/she goes to the clinic. The objective of
+this project is to build a system that will ease the process of booking appointment of the doctor. The patient will book
+the appointment through his/her mobile phone.  It will save the clerk's paper work. The
+system will prove to be useful for Clerk as he can check his appointments whenever and from wherever he wants from
+his mobile phone."
+
+        android:textColor="#fff"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"/>
+
+
+
+</LinearLayout>
