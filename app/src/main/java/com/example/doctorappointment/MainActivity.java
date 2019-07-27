@@ -82,63 +82,6 @@ firebaseAuth=FirebaseAuth.getInstance();
             }
         });
 
-       /* btnlogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String loginemail=txtloginemail.getText().toString().trim();
-                String loginpass=txtloginpass.getText().toString().trim();
-
-
-
-                if(loginemail.equals("")){
-
-
-                    txtloginemail.setError("Email should not be empty");
-                }
-                else if(loginpass.equals(""))
-                {
-                    txtloginpass.setError("Name Should not be Empty");
-                }
-
-               else if(loginpass.length()<6)
-                {
-                    Toast.makeText(MainActivity.this, "Password Length Too Small", Toast.LENGTH_SHORT).show();
-                }
-               else
-                {
-
-
-
-
-
-                    firebaseAuth.signInWithEmailAndPassword(loginemail , loginpass)
-                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-
-                                        startActivity(new Intent(getApplicationContext(),ClerkHome.class));
-
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Login Failed or User Not Available", Toast.LENGTH_SHORT).show();
-
-
-                                    }
-
-
-                                }
-                            });
-                }
-
-
-
-
-
-
-            }
-        });
-*/
 
        btnlogin.setOnSwipeListener(new ProSwipeButton.OnSwipeListener() {
            @Override
@@ -155,21 +98,21 @@ firebaseAuth=FirebaseAuth.getInstance();
 
 
                           txtloginemail.setError("Email should not be empty");
+                          btnlogin.showResultIcon(false);
                       }
                       else if(loginpass.equals(""))
                       {
                           txtloginpass.setError("Name Should not be Empty");
+                          btnlogin.showResultIcon(false);
                       }
 
                       else if(loginpass.length()<6)
                       {
                           Toast.makeText(MainActivity.this, "Password Length Too Small", Toast.LENGTH_SHORT).show();
+                          btnlogin.showResultIcon(false);
                       }
                       else
                       {
-
-
-
 
 
                           firebaseAuth.signInWithEmailAndPassword(loginemail , loginpass)

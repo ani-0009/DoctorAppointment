@@ -22,6 +22,15 @@
             android:checked="false"
 
             android:title="Appointment List" />
+        <item
+            android:id="@+id/appdel"
+
+            android:checked="false"
+
+            android:title="Remove Appointment" />
+
+
+
 
     </group>
 

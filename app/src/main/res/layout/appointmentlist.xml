@@ -25,20 +25,29 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:id="@+id/listview"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bkg"
+android:padding="5dp"
 
+android:background="@drawable/bkg"
         >
-
-
-
 
     </ListView>
 
-
-
+    <Button
+        android:layout_width="170dp"
+        android:layout_marginTop="15dp"
+        android:textSize="25dp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        android:drawableEnd="@drawable/ic_refresh_black_24dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/mainbg"
+        android:layout_marginLeft="10dp"
+        android:background="@color/textcolor"
+        android:layout_height="wrap_content"
+        android:text="Refresh"/>
 
 
 

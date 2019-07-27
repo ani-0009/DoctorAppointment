@@ -79,14 +79,19 @@ public class Pop extends AppCompatActivity {
                         if (id.equals("")) {
 
                             txtid.setError("ID should not be empty");
+                            btn_register.showResultIcon(false);
                         } else if (name.equals("")) {
                             txtname.setError("Name Should not be Empty");
+                            btn_register.showResultIcon(false);
                         } else if (email.equals("")) {
                             txtemail.setError("Email Should not be Empty");
+                            btn_register.showResultIcon(false);
                         } else if (phone.equals("")) {
                             txtphone.setError("Phone Should not be Empty");
+                            btn_register.showResultIcon(false);
                         } else if (address.equals("")) {
                             txtadd.setError("Address Should not be Empty");
+                            btn_register.showResultIcon(false);
                         } else {
 
 
@@ -119,7 +124,9 @@ public class Pop extends AppCompatActivity {
                                                             intent.putExtra("id", id);
                                                             intent.putExtra("pass", password);
                                                             startActivity(intent);
+                                                            btn_register.showResultIcon(true);
                                                         } else {
+                                                            btn_register.showResultIcon(false);
                                                             Toast.makeText(Pop.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                                                         }
                                                     }

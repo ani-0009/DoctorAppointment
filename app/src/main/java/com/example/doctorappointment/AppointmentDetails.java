@@ -126,7 +126,7 @@ btn_submit=view.findViewById(R.id.btn_submit);
     @Override
     public void onClick(View view) {
         String appdoctorid = txtdid.getText().toString();
-        String appID = txtappid.getText().toString();
+        String appID = txtappid.getText().toString().trim();
         String appNO = txtappno.getText().toString();
         final String appPhone = txtphone.getText().toString();
         final String appName = txtname.getText().toString();

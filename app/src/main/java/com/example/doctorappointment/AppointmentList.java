@@ -1,6 +1,7 @@
 package com.example.doctorappointment;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -13,7 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.doctorappointment.com.Patient;
 import com.example.doctorappointment.com.dbtask.DoctorConstant;
@@ -51,9 +54,10 @@ public class AppointmentList extends Fragment
         listView=view.findViewById(R.id.listview);
 
 
+
       Cursor cursor= sqLiteDatabase.query(DoctorConstant.tabletwo,null,null,null,null,null,null);
 
-      ArrayList<Patient> arrayList=new ArrayList<Patient>();
+      final ArrayList<Patient> arrayList=new ArrayList<Patient>();
       while(cursor!=null&&cursor.moveToNext()) {
 
           String id = cursor.getString(cursor.getColumnIndex(DoctorConstant.colpappid));
@@ -64,15 +68,28 @@ public class AppointmentList extends Fragment
 
 
 
+
+
+
           patient = new Patient(id, no, date, name, problem);
 
           arrayList.add(patient);
 
       }
 
-       ArrayAdapter<Patient> arrayAdapter= new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,arrayList);
+       final ArrayAdapter<Patient> arrayAdapter= new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1,arrayList);
 
             listView.setAdapter(arrayAdapter);
+            listView.setDividerHeight(10);
+           listView.setBackgroundColor(Color.WHITE);
+
+
+
+
+
+
+
+
 
 
 
@@ -82,5 +99,8 @@ public class AppointmentList extends Fragment
         return view;
 
     }
+
+
+
 
 }

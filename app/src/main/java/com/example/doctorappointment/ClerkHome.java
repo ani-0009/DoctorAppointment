@@ -81,6 +81,16 @@ public class ClerkHome extends AppCompatActivity
             return true;
         }
 
+
+        else if(id==R.id.logoutbtn)
+        {
+            firebaseAuth.signOut();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -108,6 +118,13 @@ public class ClerkHome extends AppCompatActivity
 
 
         }
+        else if (id == R.id.appdel) {
+
+            fragment =new DeleteAppointment();
+
+
+        }
+
         else if (id == R.id.about) {
 
             fragment =new About();
