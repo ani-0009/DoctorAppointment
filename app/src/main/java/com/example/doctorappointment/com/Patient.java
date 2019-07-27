@@ -6,7 +6,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Appointment ID:  "+appointmentID +"  Appointment NO.:  "+appointmentNo+"  DATE Of Appointment:  "+DateOfAppointmentGiven+"  Patient Name:  "+PatientName+"  Patient Problem:  "+PatientProblem;
+        return "Appointment ID: "+appointmentID +"\nAppointment NO: "+appointmentNo+"\nDateOfAppointment: "+DateOfAppointmentGiven+"\nPatient Name: "+PatientName+"\nPatient Problem: "+PatientProblem;
     }
 
     public Patient() {

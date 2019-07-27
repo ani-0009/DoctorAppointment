@@ -50,14 +50,15 @@ public class DeleteAppointment extends Fragment
             @Override
             public void onClick(View view) {
                 String delid=id.getText().toString();
+                int k=0;
 
                //Cursor cur= sqLiteDatabase.rawQuery("select count(*) from PatientDetails where PatientAppointmentID"+id,null);
 
 
-                Cursor cursor= sqLiteDatabase.rawQuery("select * from PatientDetails where PatientAppointmentID=" + delid,null);
-                 if(cursor.getCount()>0) {
+                Cursor cursor= sqLiteDatabase.rawQuery("select * from PatientDetails where PatientAppointmentID=\"" + delid+"\"",null);
 
-                    Cursor c= sqLiteDatabase.rawQuery("delete from PatientDetails where PatientAppointmentID=" + delid,null);
+                 if(cursor.getCount()>0) {
+                     sqLiteDatabase.rawQuery("delete from PatientDetails where PatientAppointmentID=\"" + delid+"\"",null).moveToFirst();
                      Toast.makeText(getActivity(), "Data Deleted", Toast.LENGTH_SHORT).show();
                  }
                  else
@@ -65,6 +66,7 @@ public class DeleteAppointment extends Fragment
 
                      Toast.makeText(getActivity(), "Data Not Present in Database", Toast.LENGTH_SHORT).show();
                  }
+
 
 
 
